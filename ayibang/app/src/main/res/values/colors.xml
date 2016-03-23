@@ -6,4 +6,9 @@
 
     <color name="white_normal">#FF4081</color>
     <color name="white_pressed">#303F9F</color>
+
+    <color name="qianhui2">#e8e8e8</color>
+    <color name="qianhui">#f0f0f0</color>
+    <color name="qianlan">#e2f8f9</color>
+    <color name="white">#fdfdfd</color>
 </resources>
