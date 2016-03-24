@@ -65,7 +65,7 @@ public class GuideAdapter extends PagerAdapter {
 //            }
 //        });
 //        Glide.with(mContext).load(mDatas.get(position).Img).centerCrop().into(mImageView);
-
+        mImageView.setScaleType(ImageView.ScaleType.FIT_XY);
         ((ViewPager)container).addView(mImageView);
         return mImageView;
     }

@@ -225,7 +225,8 @@
                 android:orientation="vertical"
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
-                android:padding="10dp">
+                android:padding="10dp"
+                android:background="@drawable/btn_login_select">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -258,7 +259,8 @@
                     android:layout_height="match_parent"
                     android:orientation="horizontal"
                     android:layout_weight="1"
-                    android:padding="10dp">
+                    android:padding="10dp"
+                    android:background="@drawable/btn_login_select">
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -294,7 +296,8 @@
                     android:layout_height="match_parent"
                     android:orientation="horizontal"
                     android:layout_weight="1"
-                    android:padding="10dp">
+                    android:padding="10dp"
+                    android:background="@drawable/btn_login_select">
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -346,7 +349,8 @@
                     android:layout_height="match_parent"
                     android:orientation="horizontal"
                     android:layout_weight="1"
-                    android:padding="10dp">
+                    android:padding="10dp"
+                    android:background="@drawable/btn_login_select">
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -382,7 +386,8 @@
                     android:layout_height="match_parent"
                     android:orientation="horizontal"
                     android:layout_weight="1"
-                    android:padding="10dp">
+                    android:padding="10dp"
+                    android:background="@drawable/btn_login_select">
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -427,7 +432,8 @@
                     android:layout_height="match_parent"
                     android:orientation="horizontal"
                     android:layout_weight="1"
-                    android:padding="10dp">
+                    android:padding="10dp"
+                    android:background="@drawable/btn_login_select">
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -463,7 +469,8 @@
                     android:layout_height="match_parent"
                     android:orientation="horizontal"
                     android:layout_weight="1"
-                    android:padding="10dp">
+                    android:padding="10dp"
+                    android:background="@drawable/btn_login_select">
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -502,7 +509,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:background="@color/white"
+            android:background="@drawable/btn_login_select"
             android:padding="10dp">
 
             <LinearLayout
@@ -523,9 +530,6 @@
                     android:text="冲得多，送得多"
                     android:textSize="11sp"/>
             </LinearLayout>
-
-            <include layout="@layout/include_line_gray_vertical"/>
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -553,7 +557,8 @@
                 android:layout_height="match_parent"
                 android:orientation="horizontal"
                 android:layout_weight="1"
-                android:padding="10dp">
+                android:padding="10dp"
+                android:background="@drawable/btn_login_select">
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -591,7 +596,8 @@
                 android:layout_height="match_parent"
                 android:orientation="horizontal"
                 android:layout_weight="1"
-                android:padding="10dp">
+                android:padding="10dp"
+                android:background="@drawable/btn_login_select">
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -658,7 +664,8 @@
                 android:orientation="vertical"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:padding="10dp">
+                android:padding="10dp"
+                android:background="@drawable/btn_login_select">
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -678,7 +685,8 @@
                 android:orientation="vertical"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:padding="10dp">
+                android:padding="10dp"
+                android:background="@drawable/btn_login_select">
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -688,6 +696,7 @@
                     android:layout_height="match_parent"
                     android:text="服务"
                     android:textSize="14sp"/>
+
             </LinearLayout>
         </LinearLayout>
 

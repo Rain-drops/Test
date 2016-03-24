@@ -6,17 +6,21 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.sgj.ayibang.R;
 
 /**
- * Created by John on 2016/3/23.
+ * Created by John on 2016/3/24.
  */
-public class FragmentMain extends Fragment {
+public class FragmentMine extends Fragment implements View.OnClickListener{
 
-    public static FragmentMain newInstance(){
-        FragmentMain fragmentMain = new FragmentMain();
-        return fragmentMain;
+    TextView tv_login;
+
+    public static FragmentMine newInstance(){
+        FragmentMine fragmentMine = new FragmentMine();
+        return fragmentMine;
     }
 
     @Override
@@ -27,7 +31,11 @@ public class FragmentMain extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_main, container, false);
+        View view = inflater.inflate(R.layout.fragment_mine, container, false);
+
+        tv_login = (TextView) view.findViewById(R.id.tv_login);
+        tv_login.setOnClickListener(this);
+
         return view;
     }
 
@@ -40,4 +48,19 @@ public class FragmentMain extends Fragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
     }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.tv_login:
+                toast(" 登陆 ");
+                break;
+        }
+    }
+
+
+    private void toast(String str){
+        Toast.makeText(getActivity(), str, Toast.LENGTH_SHORT).show();
+    }
+
 }

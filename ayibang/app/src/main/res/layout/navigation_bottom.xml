@@ -43,6 +43,7 @@
             android:orientation="vertical"
             android:background="@drawable/btn_login_select">
             <ImageView
+                android:id="@+id/iv_order"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/tab_order_normal"
@@ -67,6 +68,7 @@
             android:orientation="vertical"
             android:background="@drawable/btn_login_select">
             <ImageView
+                android:id="@+id/iv_mine"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/tab_mine_normal"

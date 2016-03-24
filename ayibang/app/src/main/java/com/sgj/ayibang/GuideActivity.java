@@ -63,26 +63,27 @@ public class GuideActivity extends BaseActivity implements View.OnClickListener{
         mTextView = (TextView) findViewById(R.id.tv_login);
         mTextView.setOnClickListener(this);
 
-        ViewGroup.LayoutParams mParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT);
+        ViewGroup.LayoutParams mParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.MATCH_PARENT);
 
         mDatas = new ArrayList<>();
         for(int i = 0; i<pics.length; i++){
             ImageView imageView = new ImageView(this);
             imageView.setLayoutParams(mParams);
             imageView.setImageResource(pics[i]);
+
             mDatas.add(imageView);
         }
 
         final GuideAdapter mAdapter = new GuideAdapter(mContext, mDatas);
         mViewPager.setAdapter(mAdapter);
         mCircleIndicator.setViewPager(mViewPager);
-        mViewHandler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                mViewHandler.slidingPlayView(mViewPager, mAdapter.getCount());
-            }
-        }, 6_000);
+//        mViewHandler.postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
+//                mViewHandler.slidingPlayView(mViewPager, mAdapter.getCount());
+//            }
+//        }, 6_000);
         mViewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
