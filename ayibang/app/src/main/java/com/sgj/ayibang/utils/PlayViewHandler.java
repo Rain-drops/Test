@@ -40,8 +40,8 @@ public class PlayViewHandler extends Handler {
                     }
                 }else{
                     if(i == count - 1){
-//                        playingDirection = 1;
-//                        i=0;
+                        playingDirection = 1;
+                        i=0;
                     }else {
                         i++;
                     }

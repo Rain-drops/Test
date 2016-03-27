@@ -78,12 +78,6 @@ public class GuideActivity extends BaseActivity implements View.OnClickListener{
         final GuideAdapter mAdapter = new GuideAdapter(mContext, mDatas);
         mViewPager.setAdapter(mAdapter);
         mCircleIndicator.setViewPager(mViewPager);
-//        mViewHandler.postDelayed(new Runnable() {
-//            @Override
-//            public void run() {
-//                mViewHandler.slidingPlayView(mViewPager, mAdapter.getCount());
-//            }
-//        }, 6_000);
         mViewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {

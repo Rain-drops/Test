@@ -1,6 +1,7 @@
 package com.sgj.ayibang;
 
 import android.content.Context;
+import android.content.Intent;
 import android.nfc.Tag;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -54,6 +55,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
     LinearLayout order;
     @Bind(R.id.ll_mine)
     LinearLayout mine;
+    @Bind(R.id.lv_news)
+    ImageView news;
 
     @Bind(R.id.iv_main)
     ImageView iv_main;
@@ -80,6 +83,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         main.setOnClickListener(this);
         order.setOnClickListener(this);
         mine.setOnClickListener(this);
+        news.setOnClickListener(this);
     }
 
     @Override
@@ -109,6 +113,14 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
                     mMineFragment = FragmentMine.newInstance();
                 }
                 switchFragment(TAG_MINE, mMineFragment);
+                break;
+            case R.id.lv_news:
+                Intent intent = new Intent(this, CardActivity.class);
+                startActivity(intent);
+//                this.finish();
+
+                break;
+            default:
                 break;
         }
     }

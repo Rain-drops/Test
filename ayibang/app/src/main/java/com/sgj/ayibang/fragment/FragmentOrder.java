@@ -1,5 +1,6 @@
 package com.sgj.ayibang.fragment;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -10,6 +11,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.cjj.MaterialRefreshLayout;
+import com.cjj.MaterialRefreshListener;
 import com.sgj.ayibang.R;
 import com.sgj.ayibang.adapter.OrderAdapter;
 import com.sgj.ayibang.model.Order;
@@ -35,8 +38,16 @@ public class FragmentOrder extends Fragment implements ReLoadCallbackListener{
     private OrderAdapter mAdapter;
     private ArrayList<Order> mDataSet;
 
+    @Bind(R.id.refresh)
+    MaterialRefreshLayout mRefreshLayout;
+
     @Bind(R.id.recycler_view)
     RecyclerView recycler_view;
+
+    int PageIndex = 1;
+    private boolean isLoadMore = false;
+    private boolean isHaveLoadData = false;
+    private boolean isInit = false;
 
     public static FragmentOrder newInstance(){
         FragmentOrder fragmentOrder = new FragmentOrder();
@@ -54,6 +65,10 @@ public class FragmentOrder extends Fragment implements ReLoadCallbackListener{
         if(mAdapter != null){
             mAdapter.updateData(mDataSet);
         }
+        if(mRefreshLayout != null){
+            mRefreshLayout.finishRefresh();
+            mRefreshLayout.finishRefreshLoadMore();
+        }
     }
 
     @Nullable
@@ -61,6 +76,7 @@ public class FragmentOrder extends Fragment implements ReLoadCallbackListener{
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_order, container, false);
         ButterKnife.bind(this, view);
+        isInit = true;
 
         viewSelectorLayout = new ViewSelectorLayout(getActivity(), view);
         viewSelectorLayout.setReLoadCallbackListener(this);
@@ -81,6 +97,18 @@ public class FragmentOrder extends Fragment implements ReLoadCallbackListener{
 
         viewSelectorLayout.show_LoadingView();
         getData();
+        mRefreshLayout.setMaterialRefreshListener(new MaterialRefreshListener() {
+            @Override
+            public void onRefresh(MaterialRefreshLayout materialRefreshLayout) {
+                getData();
+            }
+
+            @Override
+            public void onRefreshLoadMore(MaterialRefreshLayout materialRefreshLayout) {
+                PageIndex += 1;
+                getData();
+            }
+        });
     }
 
     private void getData() {
@@ -88,7 +116,7 @@ public class FragmentOrder extends Fragment implements ReLoadCallbackListener{
         //查询 phone = "15011386125" 的数据
         query.addWhereEqualTo("phone", "15011386125");
         //返回50条数据，如果不加上这条语句，默认返回10条数据
-        query.setLimit(50);
+        query.setLimit(PageIndex);
         query.findObjects(getContext(), new FindListener<Order>() {
             @Override
             public void onSuccess(List<Order> list) {
@@ -97,9 +125,14 @@ public class FragmentOrder extends Fragment implements ReLoadCallbackListener{
                     mAdapter = new OrderAdapter(getContext(), mDataSet);
                     recycler_view.setAdapter(mAdapter);
                 }else {
-
+                    mAdapter.updateData(mDataSet);
                 }
                 viewSelectorLayout.show_ContentView();
+                if(mRefreshLayout != null){
+                    mRefreshLayout.finishRefresh();
+                    mRefreshLayout.finishRefreshLoadMore();
+                }
+
             }
 
             @Override
@@ -119,5 +152,24 @@ public class FragmentOrder extends Fragment implements ReLoadCallbackListener{
     public void onReLoadCallback() {
         viewSelectorLayout.show_LoadingView();
         getData();
+    }
+
+    private class loadContact extends AsyncTask<String, Void, Integer>{
+
+
+        @Override
+        protected Integer doInBackground(String... params) {
+            return null;
+        }
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+        }
+
+        @Override
+        protected void onPostExecute(Integer integer) {
+            super.onPostExecute(integer);
+        }
     }
 }

@@ -11,4 +11,10 @@
     <color name="qianhui">#f0f0f0</color>
     <color name="qianlan">#e2f8f9</color>
     <color name="white">#fdfdfd</color>
+    <color name="qianlv">#54cdcd</color>
+    <color name="shenlv">#328181</color>
+    <color name="color_zhonghui">#ff798089</color>
+    <color name="black">#000</color>
+    <color name="black_2">#222</color>
+    <color name="color_shenhui">#ff999999</color>
 </resources>
