@@ -1,366 +1,373 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
+<ScrollView
     android:layout_height="match_parent"
-    android:background="@color/qianhui2">
-    <LinearLayout
+    android:layout_width="match_parent"
+    android:background="@color/qianhui2"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:background="@color/white">
+        android:layout_height="match_parent"
+        android:background="@color/qianhui2">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="170.0dip"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:gravity="center"
-            android:background="@color/qianlv">
-
-            <ImageView
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:src="@drawable/ic_popup"
-                android:padding="2dp"/>
-            <TextView
-                android:id="@+id/tv_login"
-                android:layout_width="80dp"
-                android:layout_height="28dp"
-                android:text="请登录"
-                android:padding="2dp"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:layout_marginTop="10dp"
-                android:textSize="20sp"
-                android:background="@drawable/tv_frame"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="150xxxxxxxx"
-                android:padding="2dp"
-                android:layout_marginTop="3dp"
-                android:visibility="gone"/>
-        </LinearLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="52dp"
-            android:background="@color/shenlv">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="余额"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="10dp"
-                android:padding="5dp"/>
-            <View android:id="@+id/temp_center_line"
-                android:background="#ff7ed3a6"
-                android:layout_width="1.0px"
-                android:layout_height="40.0dip"
-                android:layout_centerInParent="true" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_toLeftOf="@id/temp_center_line"
-                android:text="0.00"
-                android:layout_centerVertical="true"
-                android:layout_marginRight="5dp"
-                android:padding="5dp"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_toRightOf="@id/temp_center_line"
-                android:text="优惠券"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="5dp"
-                android:padding="5dp"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:text="-10"
-                android:layout_centerVertical="true"
-                android:layout_marginRight="5dp"
-                android:padding="5dp"/>
-
-            <View
-                android:id="@+id/coupon"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_toLeftOf="@id/temp_center_line"/>
-            <View
-                android:id="@+id/balance"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_toRightOf="@id/temp_center_line"/>
-        </RelativeLayout>
-
-        <include layout="@layout/include_line_gray"/>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="52dp">
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="2px"
-                android:background="@color/colorAccent"
-                android:layout_alignParentTop="true"/>
+            android:background="@color/white">
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="52dp"
-                android:orientation="horizontal"
-                android:gravity="center_vertical">
+                android:layout_height="170.0dip"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:background="@color/qianlv">
 
                 <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/ic_popup"
+                    android:padding="2dp"/>
+                <TextView
+                    android:id="@+id/tv_login"
+                    android:layout_width="80dp"
+                    android:layout_height="28dp"
+                    android:text="请登录"
+                    android:padding="2dp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:textSize="20sp"
+                    android:background="@drawable/tv_frame"/>
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_popup"
-                    android:padding="3dp"
+                    android:text="150xxxxxxxx"
+                    android:padding="2dp"
+                    android:layout_marginTop="3dp"
+                    android:visibility="gone"/>
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:background="@color/shenlv">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="余额"
+                    android:layout_centerVertical="true"
                     android:layout_marginLeft="10dp"
-                    android:scaleType="centerCrop"/>
+                    android:padding="5dp"/>
+                <View android:id="@+id/temp_center_line"
+                    android:background="#ff7ed3a6"
+                    android:layout_width="1.0px"
+                    android:layout_height="40.0dip"
+                    android:layout_centerInParent="true" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toLeftOf="@id/temp_center_line"
+                    android:text="0.00"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="5dp"
+                    android:padding="5dp"/>
 
-                <RelativeLayout
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/temp_center_line"
+                    android:text="优惠券"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="5dp"
+                    android:padding="5dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:text="-10"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="5dp"
+                    android:padding="5dp"/>
+
+                <View
+                    android:id="@+id/coupon"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="10dp">
+                    android:layout_toLeftOf="@id/temp_center_line"/>
+                <View
+                    android:id="@+id/balance"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_toRightOf="@id/temp_center_line"/>
+            </RelativeLayout>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="会员充值"
-                        android:textSize="18sp"
-                        android:padding="2dp"
-                        android:layout_centerVertical="true"/>
+            <include layout="@layout/include_line_gray"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="52dp">
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2px"
+                    android:background="@color/colorAccent"
+                    android:layout_alignParentTop="true"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
 
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/ic_arrow_enter"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginRight="10dp"
-                        android:padding="2dp"/>
-                    
-                    <View
+                        android:src="@drawable/ic_popup"
+                        android:padding="3dp"
+                        android:layout_marginLeft="10dp"
+                        android:scaleType="centerCrop"/>
+
+                    <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="2px"
-                        android:background="@color/colorAccent"
-                        android:layout_alignParentBottom="true"/>
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="10dp">
 
-                </RelativeLayout>
-            </LinearLayout>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="会员充值"
+                            android:textSize="18sp"
+                            android:padding="2dp"
+                            android:layout_centerVertical="true"/>
 
-        </RelativeLayout>
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_arrow_enter"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="10dp"
+                            android:padding="2dp"/>
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="52dp">
-            <LinearLayout
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="2px"
+                            android:background="@color/colorAccent"
+                            android:layout_alignParentBottom="true"/>
+
+                    </RelativeLayout>
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:gravity="center_vertical">
-
-                <ImageView
-                    android:layout_width="45dp"
-                    android:layout_height="45dp"
-                    android:src="@drawable/ic_popup"
-                    android:padding="2dp"
-                    android:layout_marginLeft="10dp"/>
-
-                <RelativeLayout
+                android:layout_height="52dp">
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="10dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="会员充值"
-                        android:textSize="18sp"
-                        android:padding="2dp"
-                        android:layout_centerVertical="true"/>
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
 
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/ic_arrow_enter"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginRight="10dp"
-                        android:padding="2dp"/>
+                        android:src="@drawable/ic_popup"
+                        android:padding="2dp"
+                        android:layout_marginLeft="10dp"
+                        android:scaleType="centerCrop"/>
 
-                    <View
+                    <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="2px"
-                        android:background="@color/colorAccent"
-                        android:layout_alignParentBottom="true"/>
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="10dp">
 
-                </RelativeLayout>
-            </LinearLayout>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="会员充值"
+                            android:textSize="18sp"
+                            android:padding="2dp"
+                            android:layout_centerVertical="true"/>
 
-        </RelativeLayout>
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_arrow_enter"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="10dp"
+                            android:padding="2dp"/>
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="52dp">
-            <LinearLayout
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="2px"
+                            android:background="@color/colorAccent"
+                            android:layout_alignParentBottom="true"/>
+
+                    </RelativeLayout>
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:gravity="center_vertical">
-
-                <ImageView
-                    android:layout_width="45dp"
-                    android:layout_height="45dp"
-                    android:src="@drawable/ic_popup"
-                    android:padding="2dp"
-                    android:layout_marginLeft="10dp"/>
-
-                <RelativeLayout
+                android:layout_height="52dp">
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="10dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="会员充值"
-                        android:textSize="18sp"
-                        android:padding="2dp"
-                        android:layout_centerVertical="true"/>
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
 
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/ic_arrow_enter"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginRight="10dp"
-                        android:padding="2dp"/>
-
-                    <!--<View-->
-                        <!--android:layout_width="match_parent"-->
-                        <!--android:layout_height="2px"-->
-                        <!--android:background="@color/colorAccent"-->
-                        <!--android:layout_alignParentBottom="true"/>-->
-
-                </RelativeLayout>
-            </LinearLayout>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="2px"
-                android:background="@color/colorAccent"
-                android:layout_alignParentBottom="true"/>
-        </RelativeLayout>
-
-        <include layout="@layout/include_line_gray"/>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="52dp">
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="2px"
-                android:background="@color/colorAccent"
-                android:layout_alignParentTop="true"/>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:gravity="center_vertical">
-
-                <ImageView
-                    android:layout_width="45dp"
-                    android:layout_height="45dp"
-                    android:src="@drawable/ic_popup"
-                    android:padding="2dp"
-                    android:layout_marginLeft="10dp"/>
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="10dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="会员充值"
-                        android:textSize="18sp"
+                        android:src="@drawable/ic_popup"
                         android:padding="2dp"
-                        android:layout_centerVertical="true"/>
+                        android:layout_marginLeft="10dp"/>
 
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/ic_arrow_enter"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginRight="10dp"
-                        android:padding="2dp"/>
-
-                    <View
+                    <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="2px"
-                        android:background="@color/colorAccent"
-                        android:layout_alignParentBottom="true"/>
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="10dp">
 
-                </RelativeLayout>
-            </LinearLayout>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="会员充值"
+                            android:textSize="18sp"
+                            android:padding="2dp"
+                            android:layout_centerVertical="true"/>
 
-        </RelativeLayout>
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="52dp">
-            <LinearLayout
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_arrow_enter"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="10dp"
+                            android:padding="2dp"/>
+
+                        <!--<View-->
+                            <!--android:layout_width="match_parent"-->
+                            <!--android:layout_height="2px"-->
+                            <!--android:background="@color/colorAccent"-->
+                            <!--android:layout_alignParentBottom="true"/>-->
+
+                    </RelativeLayout>
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2px"
+                    android:background="@color/colorAccent"
+                    android:layout_alignParentBottom="true"/>
+            </RelativeLayout>
+
+            <include layout="@layout/include_line_gray"/>
+
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:gravity="center_vertical">
-
-                <ImageView
-                    android:layout_width="45dp"
-                    android:layout_height="45dp"
-                    android:src="@drawable/ic_popup"
-                    android:padding="2dp"
-                    android:layout_marginLeft="10dp"/>
-
-                <RelativeLayout
+                android:layout_height="52dp">
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2px"
+                    android:background="@color/colorAccent"
+                    android:layout_alignParentTop="true"/>
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="10dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="会员充值"
-                        android:textSize="18sp"
-                        android:padding="2dp"
-                        android:layout_centerVertical="true"/>
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
 
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/ic_arrow_enter"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginRight="10dp"
-                        android:padding="2dp"/>
+                        android:src="@drawable/ic_popup"
+                        android:padding="2dp"
+                        android:layout_marginLeft="10dp"/>
 
-                    <!--<View-->
-                        <!--android:layout_width="match_parent"-->
-                        <!--android:layout_height="2px"-->
-                        <!--android:background="@color/colorAccent"-->
-                        <!--android:layout_alignParentBottom="true"/>-->
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="10dp">
 
-                </RelativeLayout>
-            </LinearLayout>
-            <View
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="会员充值"
+                            android:textSize="18sp"
+                            android:padding="2dp"
+                            android:layout_centerVertical="true"/>
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_arrow_enter"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="10dp"
+                            android:padding="2dp"/>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="2px"
+                            android:background="@color/colorAccent"
+                            android:layout_alignParentBottom="true"/>
+
+                    </RelativeLayout>
+                </LinearLayout>
+
+            </RelativeLayout>
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="2px"
-                android:background="@color/colorAccent"
-                android:layout_alignParentBottom="true"/>
-        </RelativeLayout>
+                android:layout_height="52dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
 
-    </LinearLayout>
-</RelativeLayout>
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_popup"
+                        android:padding="2dp"
+                        android:layout_marginLeft="10dp"/>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="10dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="会员充值"
+                            android:textSize="18sp"
+                            android:padding="2dp"
+                            android:layout_centerVertical="true"/>
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_arrow_enter"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="10dp"
+                            android:padding="2dp"/>
+
+                        <!--<View-->
+                            <!--android:layout_width="match_parent"-->
+                            <!--android:layout_height="2px"-->
+                            <!--android:background="@color/colorAccent"-->
+                            <!--android:layout_alignParentBottom="true"/>-->
+
+                    </RelativeLayout>
+                </LinearLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="2px"
+                    android:background="@color/colorAccent"
+                    android:layout_alignParentBottom="true"/>
+            </RelativeLayout>
+            <include layout="@layout/include_line_gray"/>
+        </LinearLayout>
+    </RelativeLayout>
+</ScrollView>

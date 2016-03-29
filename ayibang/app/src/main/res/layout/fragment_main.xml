@@ -61,6 +61,7 @@
                 android:orientation="horizontal">
 
                 <LinearLayout
+                    android:id="@+id/ll_service"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
                     android:orientation="vertical"
@@ -75,7 +76,7 @@
                         android:layout_gravity="center_horizontal"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="1"/>
+                        android:text="菜单"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -84,7 +85,8 @@
                     android:orientation="vertical"
                     android:layout_weight="1"
                     android:gravity="center_horizontal"
-                    android:padding="5dp">
+                    android:padding="5dp"
+                    android:id="@+id/ll_service2">
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -93,7 +95,7 @@
                         android:layout_gravity="center_horizontal"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="2"/>
+                        android:text="单击"/>
                 </LinearLayout>
 
                 <LinearLayout

@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.nfc.Tag;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
@@ -12,6 +14,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.method.Touch;
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -19,10 +22,18 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.amap.api.location.AMapLocation;
+import com.amap.api.location.AMapLocationClient;
+import com.amap.api.location.AMapLocationClientOption;
+import com.amap.api.location.AMapLocationListener;
+import com.sgj.ayibang.adapter.CityAdapter;
 import com.sgj.ayibang.fragment.FragmentMain;
 import com.sgj.ayibang.fragment.FragmentMine;
 import com.sgj.ayibang.fragment.FragmentOrder;
+import com.sgj.ayibang.model.City;
 import com.sgj.ayibang.model.Person;
+import com.sgj.ayibang.utils.CityUtils;
+import com.sgj.ayibang.utils.LocationUtils;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -55,6 +66,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
     LinearLayout order;
     @Bind(R.id.ll_mine)
     LinearLayout mine;
+    @Bind(R.id.ll_city)
+    LinearLayout citys;
     @Bind(R.id.lv_news)
     ImageView news;
 
@@ -65,6 +78,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
     @Bind(R.id.iv_mine)
     ImageView iv_mine;
 
+
+    private AMapLocationClient locationClient = null;
+    private AMapLocationClientOption locationOption = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,6 +100,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         order.setOnClickListener(this);
         mine.setOnClickListener(this);
         news.setOnClickListener(this);
+        citys.setOnClickListener(this);
+
+
+
     }
 
     @Override
@@ -94,6 +114,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
 
     @Override
     public void onClick(View v) {
+        Intent intent = new Intent();
         switch (v.getId()){
             case R.id.ll_main:
                 if(mMainFragment == null){
@@ -115,10 +136,12 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
                 switchFragment(TAG_MINE, mMineFragment);
                 break;
             case R.id.lv_news:
-                Intent intent = new Intent(this, CardActivity.class);
+                intent.setClass(this, AdvertiseActivity.class);
                 startActivity(intent);
-//                this.finish();
-
+                break;
+            case R.id.ll_city:
+                intent.setClass(this, CityActivity.class);
+                startActivity(intent);
                 break;
             default:
                 break;
@@ -196,4 +219,5 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
     public void toast(String str){
         Toast.makeText(mContext, str, Toast.LENGTH_SHORT).show();
     }
+
 }

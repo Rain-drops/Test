@@ -8,7 +8,11 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 
+import com.amap.api.location.AMapLocation;
+import com.amap.api.location.AMapLocationClient;
+import com.sgj.ayibang.utils.CityUtils;
 import com.sgj.ayibang.utils.Constant;
+import com.sgj.ayibang.utils.LocationUtils;
 
 import cn.bmob.v3.Bmob;
 
@@ -18,9 +22,22 @@ import cn.bmob.v3.Bmob;
  */
 public class BaseActivity extends AppCompatActivity {
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Bmob.initialize(getApplicationContext(), Constant.APPID);
+
+//        CityUtils utils = new CityUtils(this);
+//        utils.getCity();
+
+
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
     }
 }

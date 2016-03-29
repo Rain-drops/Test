@@ -26,4 +26,10 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="ActivityDialog" parent="@android:style/Theme.Dialog">
+
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
 </resources>

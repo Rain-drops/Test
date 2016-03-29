@@ -50,6 +50,8 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder>{
         holder.tv_phone.setText(order.getPhone());
         holder.tv_ordertype.setText(order.getOrderType());
         Glide.with(mContext).load(order.getPhoto().getFileUrl(mContext)).centerCrop().into(holder.iv_photo);
+
+
     }
 
     @Override

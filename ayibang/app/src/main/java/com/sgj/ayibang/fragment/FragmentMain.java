@@ -1,5 +1,6 @@
 package com.sgj.ayibang.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -10,7 +11,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import com.sgj.ayibang.CardActivity;
 import com.sgj.ayibang.R;
+import com.sgj.ayibang.ServiceActivity;
 import com.sgj.ayibang.adapter.GuideAdapter;
 import com.sgj.ayibang.utils.PlayViewHandler;
 
@@ -24,12 +27,16 @@ import me.relex.circleindicator.CircleIndicator;
 /**
  * Created by John on 2016/3/23.
  */
-public class FragmentMain extends Fragment {
+public class FragmentMain extends Fragment implements View.OnClickListener{
 
     @Bind(R.id.viewpager_main)
     ViewPager mViewPager;
     @Bind(R.id.indicator_default)
     CircleIndicator mCircleIndicator;
+    @Bind(R.id.ll_service)
+    LinearLayout service;
+    @Bind(R.id.ll_service2)
+    LinearLayout service2;
 
     private static final int[] pics = {R.drawable.a, R.drawable.b, R.drawable.c};
     List<ImageView> mDataSet;
@@ -52,6 +59,8 @@ public class FragmentMain extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_main, null);
         ButterKnife.bind(this, view);
+        service.setOnClickListener(this);
+        service2.setOnClickListener(this);
         return view;
     }
 
@@ -84,5 +93,22 @@ public class FragmentMain extends Fragment {
                 mViewHandler.slidingPlayView(mViewPager, adapter.getCount());
             }
         }, 6000);
+    }
+
+    @Override
+    public void onClick(View v) {
+        Intent intent = new Intent();
+        switch (v.getId()){
+            case R.id.ll_service:
+                intent.setClass(getActivity(), ServiceActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.ll_service2:
+
+                intent.setClass(getActivity(), CardActivity.class);
+                startActivity(intent);
+                break;
+        }
+
     }
 }
