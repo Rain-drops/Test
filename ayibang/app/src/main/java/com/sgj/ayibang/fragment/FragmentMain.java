@@ -13,6 +13,7 @@ import android.widget.LinearLayout;
 
 import com.sgj.ayibang.CardActivity;
 import com.sgj.ayibang.R;
+import com.sgj.ayibang.ScrollGridActivity;
 import com.sgj.ayibang.ServiceActivity;
 import com.sgj.ayibang.adapter.GuideAdapter;
 import com.sgj.ayibang.utils.PlayViewHandler;
@@ -38,6 +39,9 @@ public class FragmentMain extends Fragment implements View.OnClickListener{
     @Bind(R.id.ll_service2)
     LinearLayout service2;
 
+    @Bind(R.id.ll_layout3)
+    LinearLayout service3;
+
     private static final int[] pics = {R.drawable.a, R.drawable.b, R.drawable.c};
     List<ImageView> mDataSet;
     private PlayViewHandler mViewHandler = new PlayViewHandler();
@@ -61,6 +65,7 @@ public class FragmentMain extends Fragment implements View.OnClickListener{
         ButterKnife.bind(this, view);
         service.setOnClickListener(this);
         service2.setOnClickListener(this);
+        service3.setOnClickListener(this);
         return view;
     }
 
@@ -108,6 +113,13 @@ public class FragmentMain extends Fragment implements View.OnClickListener{
                 intent.setClass(getActivity(), CardActivity.class);
                 startActivity(intent);
                 break;
+            case R.id.ll_layout3:
+                intent.setClass(getActivity(), ScrollGridActivity.class);
+                startActivity(intent);
+                break;
+            default:
+                break;
+
         }
 
     }

@@ -1,5 +1,6 @@
 package com.sgj.ayibang.fragment;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -31,10 +32,16 @@ public class MenuFragment extends Fragment implements View.OnClickListener{
 
     private int hideTag = 1;
 
+    BookmarkListener mActionListener;
+
 
     public static MenuFragment newInstance(){
         MenuFragment fragment = new MenuFragment();
         return fragment;
+    }
+
+    public interface BookmarkListener{
+        public void onBookmarkChanged(String tag, String bookmark);
     }
 
     @Override
@@ -59,6 +66,15 @@ public class MenuFragment extends Fragment implements View.OnClickListener{
     }
 
     @Override
+    public void onAttach(Context context) {
+        if(!(context instanceof BookmarkListener)){
+            throw new ClassCastException();
+        }
+        mActionListener = (BookmarkListener) context;
+        super.onAttach(context);
+    }
+
+    @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
     }
@@ -74,17 +90,19 @@ public class MenuFragment extends Fragment implements View.OnClickListener{
         switch (v.getId()){
             case R.id.tv_menu1:
                 changeTextColor(menu1, 1);
+                mActionListener.onBookmarkChanged("menu1", "menu1");
                 break;
             case R.id.tv_menu2:
                 changeTextColor(menu2, 2);
+                mActionListener.onBookmarkChanged("menu2", "menu2");
                 break;
             case R.id.tv_menu3:
                 changeTextColor(menu3, 3);
+                mActionListener.onBookmarkChanged("menu3", "menu3");
                 break;
             case R.id.tv_menu4:
                 changeTextColor(menu4, 4);
-                intent.setClass(getActivity(), ScrollGridActivity.class);
-                startActivity(intent);
+
                 break;
             default:
                 break;

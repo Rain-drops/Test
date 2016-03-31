@@ -154,22 +154,5 @@ public class FragmentOrder extends Fragment implements ReLoadCallbackListener{
         getData();
     }
 
-    private class loadContact extends AsyncTask<String, Void, Integer>{
 
-
-        @Override
-        protected Integer doInBackground(String... params) {
-            return null;
-        }
-
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-        }
-
-        @Override
-        protected void onPostExecute(Integer integer) {
-            super.onPostExecute(integer);
-        }
-    }
 }

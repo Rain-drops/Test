@@ -34,13 +34,19 @@ public class CityAdapter extends BaseAdapter{
 
     Holder view;
 
-    int isCheckId;
+    public static int selectedPosition=0;
 
     public CityAdapter(Context context, ArrayList<City> list) {
         this.mContext = context;
         this.mDatas = list;
         SharedPreferences preferences = context.getSharedPreferences("city", Context.MODE_PRIVATE);
         cityName = preferences.getString("City", "");
+
+        for(int i = 0;i<mDatas.size();i++){
+            if(mDatas.get(i).getCity().equals(cityName)){
+                selectedPosition = i;
+            }
+        }
 
     }
 
@@ -62,8 +68,6 @@ public class CityAdapter extends BaseAdapter{
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-
-
         if (convertView == null){
             convertView = View.inflate(mContext, R.layout.item_city, null);
             view = new Holder(convertView);
@@ -74,22 +78,19 @@ public class CityAdapter extends BaseAdapter{
 
         if(mDatas != null && mDatas.size() > 0){
             city = mDatas.get(position);
-            if(city.getCity().equals(cityName)){
+            if(selectedPosition == position){
                 view.check.setVisibility(View.VISIBLE);
-                isCheckId = position;
+                selectedPosition = position;
             }else {
                 view.check.setVisibility(View.INVISIBLE);
             }
             view.city.setText(city.getCity());
         }
-        view.relativeLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-//                view.check.setVisibility(View.VISIBLE);
-                
-            }
-        });
         return convertView;
+    }
+
+    public void setSelectedPosition(int position){
+        selectedPosition = position;
     }
 
     private class Holder{

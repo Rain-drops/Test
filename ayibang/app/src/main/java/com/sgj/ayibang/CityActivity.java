@@ -8,6 +8,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -22,6 +23,7 @@ import com.sgj.ayibang.model.City;
 import com.sgj.ayibang.utils.LocationUtils;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import butterknife.Bind;
@@ -46,6 +48,7 @@ public class CityActivity extends BaseActivity implements
 
     CityAdapter mAdapter;
     ArrayList<City> mDatas;
+    String cityName;
 
     private AMapLocationClient locationClient = null;
     private AMapLocationClientOption locationOption = null;
@@ -60,14 +63,28 @@ public class CityActivity extends BaseActivity implements
         init();
         initLacation();
 
-        getData();
-
     }
 
     private void init() {
         SharedPreferences preferences = getSharedPreferences("city", MODE_PRIVATE);
-        String city = preferences.getString("City", "");
-        mCity.setText(city);
+        cityName = preferences.getString("City", "");
+        mCity.setText(cityName);
+        getData();
+
+
+        mListView.setItemChecked(1, true);
+        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                if (mAdapter != null) {
+
+                    mAdapter.setSelectedPosition(position);
+                    mAdapter.notifyDataSetInvalidated();
+                }
+            }
+        });
+        mListView.setItemChecked(1, true);
+
     }
 
     private void initLacation() {
@@ -151,7 +168,6 @@ public class CityActivity extends BaseActivity implements
                 }else {
                     mAdapter.updateDatas(mDatas);
                 }
-
             }
 
             @Override
