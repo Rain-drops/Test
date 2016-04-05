@@ -32,6 +32,8 @@ public class CityAdapter extends BaseAdapter{
     City city;
     String cityName;
 
+    String lelectCity;
+
     Holder view;
 
     public static int selectedPosition=0;
@@ -41,7 +43,6 @@ public class CityAdapter extends BaseAdapter{
         this.mDatas = list;
         SharedPreferences preferences = context.getSharedPreferences("city", Context.MODE_PRIVATE);
         cityName = preferences.getString("City", "");
-
         for(int i = 0;i<mDatas.size();i++){
             if(mDatas.get(i).getCity().equals(cityName)){
                 selectedPosition = i;
@@ -81,12 +82,21 @@ public class CityAdapter extends BaseAdapter{
             if(selectedPosition == position){
                 view.check.setVisibility(View.VISIBLE);
                 selectedPosition = position;
+                lelectCity = city.getCity();
             }else {
                 view.check.setVisibility(View.INVISIBLE);
             }
             view.city.setText(city.getCity());
         }
         return convertView;
+    }
+
+    public String getCityName(){
+        return lelectCity;
+    }
+
+    public int getPosition(){
+        return selectedPosition;
     }
 
     public void setSelectedPosition(int position){

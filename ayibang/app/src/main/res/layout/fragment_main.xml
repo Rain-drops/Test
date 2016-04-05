@@ -76,7 +76,7 @@
                         android:layout_gravity="center_horizontal"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="菜单"/>
+                        android:text="@string/check"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -95,7 +95,7 @@
                         android:layout_gravity="center_horizontal"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="单击"/>
+                        android:text="@string/check"/>
                 </LinearLayout>
 
                 <LinearLayout
@@ -113,10 +113,11 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="点击"/>
+                        android:text="@string/check"/>
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/ll_layout4"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
                     android:orientation="vertical"
@@ -131,7 +132,7 @@
                         android:layout_gravity="center_horizontal"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="4"/>
+                        android:text="@string/check"/>
                 </LinearLayout>
             </LinearLayout>
             <LinearLayout

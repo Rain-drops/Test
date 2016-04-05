@@ -1,14 +1,17 @@
 package com.sgj.ayibang;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -39,12 +42,16 @@ public class CityActivity extends BaseActivity implements
         View.OnClickListener, AMapLocationListener{
 
     private static final String TAG = "CityActivity";
+    public static final int TAG_CITY = 0x10;
+    public static final String TAG_CITY_NAME = "TAG_CITY_NAME";
     private Context mContext;
 
     @Bind(R.id.lv_city)
     ListView mListView;
     @Bind(R.id.tv_city)
     TextView mCity;
+    @Bind(R.id.iv_close)
+    ImageView mClose;
 
     CityAdapter mAdapter;
     ArrayList<City> mDatas;
@@ -66,13 +73,14 @@ public class CityActivity extends BaseActivity implements
     }
 
     private void init() {
+
+        mClose.setOnClickListener(this);
+
         SharedPreferences preferences = getSharedPreferences("city", MODE_PRIVATE);
         cityName = preferences.getString("City", "");
         mCity.setText(cityName);
         getData();
 
-
-        mListView.setItemChecked(1, true);
         mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -80,10 +88,19 @@ public class CityActivity extends BaseActivity implements
 
                     mAdapter.setSelectedPosition(position);
                     mAdapter.notifyDataSetInvalidated();
+
+//                    String city = mAdapter.getCityName();
+                    String city = mDatas.get(position).getCity();
+                    Intent intent = new Intent();
+                    Bundle bundle = new Bundle();
+                    bundle.putString(TAG_CITY_NAME, city);
+                    intent.putExtras(bundle);
+                    CityActivity.this.setResult(TAG_CITY, intent);
+                    finish();
+
                 }
             }
         });
-        mListView.setItemChecked(1, true);
 
     }
 
@@ -121,7 +138,20 @@ public class CityActivity extends BaseActivity implements
 
     @Override
     public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.iv_close:
+                if(mAdapter != null){
+                    String city = mDatas.get(mAdapter.getPosition()).getCity();
+                    Intent intent = new Intent();
+                    Bundle bundle = new Bundle();
+                    bundle.putString(TAG_CITY_NAME, city);
+                    intent.putExtras(bundle);
+                    CityActivity.this.setResult(TAG_CITY, intent);
+                    finish();
+                }
 
+                break;
+        }
     }
 
     @Override

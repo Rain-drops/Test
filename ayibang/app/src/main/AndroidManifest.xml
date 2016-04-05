@@ -14,6 +14,13 @@
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
 
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+
+    <!-- 操作闪光灯 -->
+    <uses-permission android:name="android.permission.FLASHLIGHT"/>
+    <!-- 震动 -->
+    <uses-permission android:name="android.permission.VIBRATE"/>
+
     <application
         android:name=".MyApp"
         android:allowBackup="true"
@@ -48,6 +55,8 @@
             android:theme="@style/ActivityDialog"></activity>
 
         <activity android:name=".CityActivity"></activity>
+        <activity android:name=".NotificationActivity"/>
+        <activity android:name=".SettingActivity"/>
 
     </application>
 

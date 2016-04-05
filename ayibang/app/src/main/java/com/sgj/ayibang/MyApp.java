@@ -2,9 +2,14 @@ package com.sgj.ayibang;
 
 import android.app.Application;
 import android.content.Context;
+import android.content.res.Configuration;
+import android.content.res.Resources;
+import android.util.DisplayMetrics;
 
 import com.bmob.BmobConfiguration;
 import com.bmob.BmobPro;
+
+import java.util.Locale;
 
 
 /**
@@ -16,6 +21,12 @@ public class MyApp extends Application {
     public void onCreate() {
         super.onCreate();
         initConfig(getApplicationContext());
+
+//        Resources resources = getResources();
+//        Configuration configuration = resources.getConfiguration();
+//        configuration.locale = Locale.ENGLISH;
+//        DisplayMetrics metrics = resources.getDisplayMetrics();
+//        resources.updateConfiguration(configuration, metrics);
     }
 
     private void initConfig(Context context) {

@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.sgj.ayibang.R;
@@ -39,6 +40,9 @@ public class FragmentSwipe extends Fragment implements AdapterView.OnItemClickLi
 
     @Bind(R.id.lv_swipe)
     SwipeListView mListView;
+
+    @Bind(R.id.pb)
+    ProgressBar mProBar;
 
     public static FragmentSwipe newInstance(){
         FragmentSwipe mFragment = new FragmentSwipe();
@@ -93,6 +97,7 @@ public class FragmentSwipe extends Fragment implements AdapterView.OnItemClickLi
     }
 
     private void getData() {
+
         BmobQuery<Card> query = new BmobQuery<>();
         query.setLimit(50);
         query.findObjects(getContext(), new FindListener<Card>() {
@@ -105,11 +110,13 @@ public class FragmentSwipe extends Fragment implements AdapterView.OnItemClickLi
                 }else {
                     mAdapter.updateDatas(mDatas);
                 }
+                mProBar.setVisibility(View.GONE);
             }
 
             @Override
             public void onError(int i, String s) {
-
+                mProBar.setVisibility(View.GONE);
+                Toast.makeText(getActivity(), "网络连接异常", Toast.LENGTH_SHORT).show();
             }
         });
     }

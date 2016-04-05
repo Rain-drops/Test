@@ -20,6 +20,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.amap.api.location.AMapLocation;
@@ -70,6 +71,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
     LinearLayout citys;
     @Bind(R.id.lv_news)
     ImageView news;
+    @Bind(R.id.tv_city)
+    TextView mCity;
 
     @Bind(R.id.iv_main)
     ImageView iv_main;
@@ -141,9 +144,21 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
                 break;
             case R.id.ll_city:
                 intent.setClass(this, CityActivity.class);
-                startActivity(intent);
+                startActivityForResult(intent, CityActivity.TAG_CITY);
                 break;
             default:
+                break;
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        switch (requestCode){
+            case CityActivity.TAG_CITY:
+                String cityName = data.getExtras().getString(CityActivity.TAG_CITY_NAME);
+                mCity.setText(cityName);
                 break;
         }
     }

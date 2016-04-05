@@ -102,7 +102,7 @@ public class MenuFragment extends Fragment implements View.OnClickListener{
                 break;
             case R.id.tv_menu4:
                 changeTextColor(menu4, 4);
-
+                mActionListener.onBookmarkChanged("menu4", "menu4");
                 break;
             default:
                 break;
@@ -110,7 +110,7 @@ public class MenuFragment extends Fragment implements View.OnClickListener{
 
     }
 
-    private void changeTextColor(TextView id, int tag) {
+    private void changeTextColor(TextView view, int tag) {
 
         if(hideTag == tag){
             return;
@@ -128,7 +128,7 @@ public class MenuFragment extends Fragment implements View.OnClickListener{
             menu4.setBackgroundColor(getResources().getColor(R.color.qianlv));
         }
 
-        id.setBackgroundColor(getResources().getColor(R.color.qianhui2));
+        view.setBackgroundColor(getResources().getColor(R.color.qianhui2));
         hideTag = tag;
 
 

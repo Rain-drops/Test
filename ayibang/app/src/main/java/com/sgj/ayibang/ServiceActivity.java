@@ -11,6 +11,7 @@ import com.sgj.ayibang.fragment.ContentFragment;
 import com.sgj.ayibang.fragment.FragmentMine;
 import com.sgj.ayibang.fragment.FragmentSwipe;
 import com.sgj.ayibang.fragment.MenuFragment;
+import com.sgj.ayibang.fragment.SongsFragment;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -38,6 +39,7 @@ public class ServiceActivity extends BaseActivity implements MenuFragment.Bookma
     public static final String TAG_CONTENT = "Content";
     public static final String TAG_SWIPE = "Swipe";
     public static final String TAG_MINE = "Mine";
+    public static final String TAG_SONG = "Song";
 
 
     @Override
@@ -74,6 +76,7 @@ public class ServiceActivity extends BaseActivity implements MenuFragment.Bookma
                 switchFragment(TAG_MINE, FragmentMine.newInstance());
                 break;
             case "menu4":
+                switchFragment(TAG_SONG, SongsFragment.newInstance());
                 break;
             default:
                 break;
@@ -108,23 +111,4 @@ public class ServiceActivity extends BaseActivity implements MenuFragment.Bookma
         mSlidingPaneLayout.closePane();
     }
 
-
-    private class loadContact extends AsyncTask<String, Void, Integer> {
-
-
-        @Override
-        protected Integer doInBackground(String... params) {
-            return null;
-        }
-
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-        }
-
-        @Override
-        protected void onPostExecute(Integer integer) {
-            super.onPostExecute(integer);
-        }
-    }
 }

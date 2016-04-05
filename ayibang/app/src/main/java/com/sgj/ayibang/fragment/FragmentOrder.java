@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.cjj.MaterialRefreshLayout;
 import com.cjj.MaterialRefreshListener;
@@ -138,6 +139,7 @@ public class FragmentOrder extends Fragment implements ReLoadCallbackListener{
             @Override
             public void onError(int i, String s) {
                 Log.i("sgj", " i = " + i + "resultError ----> " + s.toString());
+                viewSelectorLayout.show_FailView();
             }
         });
     }
