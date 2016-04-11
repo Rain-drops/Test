@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/qianhui2">
+
+    <include layout="@layout/actionbar_layout"/>
+
+    <TextView
+        android:gravity="center"
+        android:paddingTop="4.0dip"
+        android:visibility="visible"
+        android:layout_width="fill_parent"
+        android:layout_height="40.0dip"/>
+
+    <RelativeLayout
+        android:background="@color/white"
+        android:layout_width="fill_parent"
+        android:layout_height="52.0dip">
+
+        <EditText
+            android:id="@+id/et_phone_number"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="phone"
+            android:hint="手机号"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/color_shenhui"
+            android:maxLength="11"
+            android:singleLine="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:imeOptions="actionDone"/>
+        <Button
+            android:id="@+id/btn_authcode"
+            android:layout_width="100dp"
+            android:layout_height="32dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:text="获取验证码"
+            android:textColor="@color/white"
+            android:background="@drawable/unclick_rounded_corners_button"
+            android:layout_marginRight="10dp"/>
+
+    </RelativeLayout>
+
+    <TextView
+        android:gravity="center"
+        android:paddingTop="4.0dip"
+        android:visibility="visible"
+        android:layout_width="fill_parent"
+        android:layout_height="1dip"/>
+
+    <RelativeLayout
+        android:background="@color/white"
+        android:layout_width="fill_parent"
+        android:layout_height="52.0dip">
+
+        <EditText
+            android:id="@+id/et_pass_word"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="number"
+            android:hint="验证码"
+            android:textSize="16sp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/color_shenhui"
+            android:maxLength="6"
+            android:singleLine="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:imeOptions="actionDone"/>
+        <TextView
+            android:id="@+id/tv_not_receive"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:gravity="center"
+            android:text="没有收到？"
+            android:textColor="@color/zhonglv"
+            android:layout_marginRight="10dp"
+            android:padding="10dp"/>
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btn_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20.0dip"
+        android:layout_marginRight="10dp"
+        android:text="点击登录"
+        android:textSize="16sp"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:background="@drawable/unclick_rounded_corners_button"/>
+
+</LinearLayout>

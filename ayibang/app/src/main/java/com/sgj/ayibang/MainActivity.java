@@ -6,8 +6,6 @@ import android.nfc.Tag;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -15,6 +13,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.method.Touch;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -28,6 +27,7 @@ import com.amap.api.location.AMapLocationClient;
 import com.amap.api.location.AMapLocationClientOption;
 import com.amap.api.location.AMapLocationListener;
 import com.sgj.ayibang.adapter.CityAdapter;
+import com.sgj.ayibang.db.PersonDB;
 import com.sgj.ayibang.fragment.FragmentMain;
 import com.sgj.ayibang.fragment.FragmentMine;
 import com.sgj.ayibang.fragment.FragmentOrder;
@@ -222,7 +222,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
             @Override
             public void onSuccess(Person person) {
 
-                toast("查询成功 : phone = " + person.getPhone());
+                PersonDB personDB = PersonDB.getInstance(mContext);
+                personDB.savePerson(person);
+
             }
 
             @Override
@@ -233,6 +235,26 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
     }
     public void toast(String str){
         Toast.makeText(mContext, str, Toast.LENGTH_SHORT).show();
+    }
+
+    private long exitTime = 0;
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+
+        if(keyCode == KeyEvent.KEYCODE_BACK && event.getAction() == KeyEvent.ACTION_DOWN){
+            if((System.currentTimeMillis() - exitTime) > 2000){
+                exitTime = System.currentTimeMillis();
+                Toast.makeText(getApplicationContext(), "再按一次退出程序", Toast.LENGTH_SHORT).show();
+                return true;
+            }else {
+                Toast.makeText(getApplicationContext(), "退出程序", Toast.LENGTH_SHORT).show();
+            }
+//            return true;
+        }else {
+
+        }
+
+        return super.onKeyDown(keyCode, event);
     }
 
 }

@@ -1,5 +1,6 @@
 package com.sgj.ayibang.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -9,7 +10,9 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.sgj.ayibang.LoginActivity;
 import com.sgj.ayibang.R;
+import com.sgj.ayibang.db.PersonDB;
 
 /**
  * Created by John on 2016/3/24.
@@ -51,12 +54,15 @@ public class FragmentMine extends Fragment implements View.OnClickListener{
 
     @Override
     public void onClick(View v) {
+        Intent intent = new Intent();
         switch (v.getId()){
             case R.id.tv_login:
-                toast(" 登陆 ");
+                intent.setClass(getActivity(), LoginActivity.class);
+                startActivity(intent);
                 break;
         }
     }
+
 
 
     private void toast(String str){

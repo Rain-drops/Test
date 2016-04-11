@@ -12,9 +12,14 @@
     <color name="qianlan">#e2f8f9</color>
     <color name="white">#fdfdfd</color>
     <color name="qianlv">#54cdcd</color>
-    <color name="shenlv">#328181</color>
+    <color name="zhonglv">#00fac8</color>
+    <color name="shenlv">#008461</color>
+    <color name="green">#00ff00</color>
+    <color name="shenlv2">#328181</color>
+    <color name="qingse">#00FFcc</color>
     <color name="color_zhonghui">#ff798089</color>
     <color name="black">#000</color>
     <color name="black_2">#222</color>
     <color name="color_shenhui">#ff999999</color>
+
 </resources>

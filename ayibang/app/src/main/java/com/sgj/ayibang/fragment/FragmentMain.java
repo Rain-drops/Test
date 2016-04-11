@@ -12,6 +12,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.sgj.ayibang.CardActivity;
+import com.sgj.ayibang.DetailsActivity;
+import com.sgj.ayibang.ImageViewActivity;
 import com.sgj.ayibang.NotificationActivity;
 import com.sgj.ayibang.R;
 import com.sgj.ayibang.ScrollGridActivity;
@@ -44,6 +46,10 @@ public class FragmentMain extends Fragment implements View.OnClickListener{
     LinearLayout service3;
     @Bind(R.id.ll_layout4)
     LinearLayout service4;
+    @Bind(R.id.ll_layout5)
+    LinearLayout service5;
+    @Bind(R.id.ll_layout6)
+    LinearLayout service6;
 
     private static final int[] pics = {R.drawable.a, R.drawable.b, R.drawable.c};
     List<ImageView> mDataSet;
@@ -70,6 +76,8 @@ public class FragmentMain extends Fragment implements View.OnClickListener{
         service2.setOnClickListener(this);
         service3.setOnClickListener(this);
         service4.setOnClickListener(this);
+        service5.setOnClickListener(this);
+        service6.setOnClickListener(this);
         return view;
     }
 
@@ -123,6 +131,14 @@ public class FragmentMain extends Fragment implements View.OnClickListener{
                 break;
             case R.id.ll_layout4:
                 intent.setClass(getActivity(), NotificationActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.ll_layout5:
+                intent.setClass(getActivity(), DetailsActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.ll_layout6:
+                intent.setClass(getActivity(), ImageViewActivity.class);
                 startActivity(intent);
                 break;
             default:

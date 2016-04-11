@@ -1,25 +1,20 @@
-package com.sgj.ayibang.model;
+package com.sgj.db.model;
 
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import java.io.Serializable;
-
-import cn.bmob.v3.BmobObject;
-
 /**
- * Created by John on 2016/3/22.
+ * Created by John on 2016/4/11.
  */
-public class Person extends BmobObject implements Parcelable{
+public class Person implements Parcelable {
+
     private String name;
-    private String phone;
+    private String phong;
     private int age;
-
-
 
     protected Person(Parcel in) {
         name = in.readString();
-        phone = in.readString();
+        phong = in.readString();
         age = in.readInt();
     }
 
@@ -35,21 +30,12 @@ public class Person extends BmobObject implements Parcelable{
         }
     };
 
-    public Person() {
-    }
-
-    public Person(String name, String phone, int age) {
-        this.name = name;
-        this.phone = phone;
-        this.age = age;
-    }
-
     public String getName() {
         return name;
     }
 
-    public String getPhone() {
-        return phone;
+    public String getPhong() {
+        return phong;
     }
 
     public int getAge() {
@@ -60,26 +46,23 @@ public class Person extends BmobObject implements Parcelable{
         this.name = name;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setPhong(String phong) {
+        this.phong = phong;
     }
 
     public void setAge(int age) {
         this.age = age;
     }
 
-    //内容描述接口，基本不用管
     @Override
     public int describeContents() {
         return 0;
     }
 
-    //写入接口函数，打包
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(name);
-        dest.writeString(phone);
+        dest.writeString(phong);
         dest.writeInt(age);
     }
-
 }

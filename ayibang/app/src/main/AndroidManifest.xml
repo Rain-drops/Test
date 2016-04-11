@@ -57,6 +57,9 @@
         <activity android:name=".CityActivity"></activity>
         <activity android:name=".NotificationActivity"/>
         <activity android:name=".SettingActivity"/>
+        <activity android:name=".DetailsActivity"/>
+        <activity android:name=".ImageViewActivity"/>
+        <activity android:name=".LoginActivity"/>
 
     </application>
 

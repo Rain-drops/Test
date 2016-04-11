@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--fraction：百分数。-->
+    <!--dimension： 尺寸值。-->
+    <!--flag：位或运算。-->
+    <!--reference：参考某一资源ID。-->
+    <declare-styleable name="CircleImageView">
+        <attr name="civ_border_width" format="dimension" /> <!-- 尺寸值 -->
+        <attr name="civ_border_color" format="color" />
+        <attr name="civ_border_overlay" format="boolean" />
+        <attr name="civ_fill_color" format="color" />
+
+    </declare-styleable>
+
+    <declare-styleable name="ImageViewTest">
+        <attr name="test_border_width" format="dimension" />
+        <attr name="test_border_color" format="color" />
+        <attr name="test_border_overlay" format="boolean" />
+        <attr name="test_fill_color" format="color" />
+
+        <attr name="test_border_text" format="string" />
+
+    </declare-styleable>
+</resources>
