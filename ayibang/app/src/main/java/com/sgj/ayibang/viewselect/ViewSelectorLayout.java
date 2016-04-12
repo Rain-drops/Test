@@ -1,6 +1,7 @@
 package com.sgj.ayibang.viewselect;
 
 import android.content.Context;
+import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -20,13 +21,24 @@ public class ViewSelectorLayout extends FrameLayout implements View.OnClickListe
     private View loadingView;//加载界面
     private TextView tv_reload;
 
+    Context mContext;
+
     private ReLoadCallbackListener callbackListener;
 
     public ViewSelectorLayout(Context context, View view) {
         super(context);
         this.contentView = view;
+        this.mContext = context;
         initView();
         handleView();
+    }
+
+    public ViewSelectorLayout(Context context, AttributeSet attrs) {
+        super(context, attrs);
+    }
+
+    public ViewSelectorLayout(Context context, AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
     }
 
     private void handleView() {
@@ -170,6 +182,7 @@ public class ViewSelectorLayout extends FrameLayout implements View.OnClickListe
                 throw new RuntimeException("You must be set setReLoadCallbackListener");
             }
         }
+//
     }
 
     public void setReLoadCallbackListener(ReLoadCallbackListener callbackListener) {

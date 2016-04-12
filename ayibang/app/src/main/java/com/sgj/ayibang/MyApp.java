@@ -8,8 +8,12 @@ import android.util.DisplayMetrics;
 
 import com.bmob.BmobConfiguration;
 import com.bmob.BmobPro;
+import com.sgj.ayibang.utils.Constant;
 
 import java.util.Locale;
+
+import cn.bmob.im.bean.BmobMsg;
+import cn.bmob.sms.BmobSMS;
 
 
 /**
@@ -32,5 +36,7 @@ public class MyApp extends Application {
     private void initConfig(Context context) {
         BmobConfiguration config = new BmobConfiguration.Builder(context).customExternalCacheDir("Smile").build();
         BmobPro.getInstance(context).initConfig(config);
+        // 短信
+        BmobSMS.initialize(context, Constant.APPID);
     }
 }

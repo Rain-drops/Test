@@ -5,4 +5,6 @@ package com.sgj.ayibang.utils;
  */
 public class Constant {
     public static final String APPID = "1b60f3e617fe97197d23bf216501f917";
+
+    public static final String MSM_NAME = "验证码";
 }

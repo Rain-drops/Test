@@ -33,6 +33,7 @@ public class BaseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         Bmob.initialize(getApplicationContext(), Constant.APPID);
 
+
 //        CityUtils utils = new CityUtils(this);
 //        utils.getCity();
 

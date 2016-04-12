@@ -15,7 +15,7 @@ public class NetUtils {
 
         NetworkInfo info = manager.getActiveNetworkInfo();
 
-        if(info == null || info.isAvailable()){
+        if(info == null || !info.isAvailable()){
             Toast.makeText(context, "没有可用网络", Toast.LENGTH_SHORT).show();
             return false;
         }
@@ -27,5 +27,11 @@ public class NetUtils {
         ConnectivityManager manager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         boolean wifi = manager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).isConnectedOrConnecting();
         return wifi;
+    }
+
+    public static boolean isMOBILEConnected(Context context){
+        ConnectivityManager manager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        boolean mobile = manager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).isConnectedOrConnecting();
+        return mobile;
     }
 }

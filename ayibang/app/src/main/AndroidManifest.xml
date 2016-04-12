@@ -21,6 +21,11 @@
     <!-- 震动 -->
     <uses-permission android:name="android.permission.VIBRATE"/>
 
+    <!-- 接收、读取 短信 -->
+    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
+    <uses-permission android:name="android.permission.READ_SMS"/>
+
+
     <application
         android:name=".MyApp"
         android:allowBackup="true"
