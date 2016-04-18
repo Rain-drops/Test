@@ -11,13 +11,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.sgj.ayibang.R;
 import com.sgj.ayibang.adapter.SongAdapter;
 import com.sgj.ayibang.dataloaders.SongLoader;
 import com.sgj.ayibang.model.Song;
+import com.sgj.quicksidebar.QuickSideBarView;
+import com.sgj.quicksidebar.listener.OnQuickSideBarTouchListener;
+import com.timehop.stickyheadersrecyclerview.StickyRecyclerHeadersDecoration;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -25,12 +30,17 @@ import butterknife.ButterKnife;
 /**
  * Created by John on 2016/4/1.
  */
-public class SongsFragment extends Fragment {
+public class SongsFragment extends Fragment implements OnQuickSideBarTouchListener {
 
     private static final String TAG = "SongsFragment";
 
     @Bind(R.id.recyclerview)
     RecyclerView mListView;
+
+    @Bind(R.id.quickSideBarView)
+    QuickSideBarView mQuickSideBarView;
+
+    HashMap<String,Integer> letters = new HashMap<>();
 
     SongAdapter mAdapter;
     ArrayList<Song> mDatas;
@@ -54,6 +64,13 @@ public class SongsFragment extends Fragment {
 
         mListView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
+        mQuickSideBarView.setOnQuickSideBarTouchListener(this);
+
+
+
+        // Add decoration for dividers between list items
+//        mListView.addItemDecoration(new DividerDecoration(this));
+
         new loadSong().execute("");
         return view;
     }
@@ -68,6 +85,18 @@ public class SongsFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
     }
 
+    @Override
+    public void onLetterChanged(String letter, int position, int itemHeight) {
+        Toast.makeText(getContext(), letter, Toast.LENGTH_SHORT).show();
+        if(letters.containsKey(letter)){
+            mListView.scrollToPosition(letters.get(letter));
+        }
+    }
+
+    @Override
+    public void onLetterTouching(boolean touching) {
+
+    }
 
 
     private class loadSong extends AsyncTask<String, Void, String>{
@@ -79,6 +108,7 @@ public class SongsFragment extends Fragment {
                 mDatas = SongLoader.getAllSongs(getActivity());
 
                 mAdapter = new SongAdapter(getActivity(), mDatas);
+
             }
             return "Executed";
         }
@@ -92,6 +122,9 @@ public class SongsFragment extends Fragment {
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
             mListView.setAdapter(mAdapter);
+
+            final StickyRecyclerHeadersDecoration headersDecor = new StickyRecyclerHeadersDecoration(mAdapter);
+            mListView.addItemDecoration(headersDecor);
         }
     }
 }

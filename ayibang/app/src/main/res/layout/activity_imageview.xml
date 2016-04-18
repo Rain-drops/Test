@@ -14,4 +14,22 @@
         app:test_border_width="2dp"
         app:test_border_color="@color/colorPrimaryDark"/>
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fab_sub"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/ic_action_search"
+            app:backgroundTint="@color/colorAccent"
+            app:rippleColor="@color/colorAccent"
+            app:layout_anchorGravity="bottom|right|end"/>
+
+    </RelativeLayout>
+
+
+
 </LinearLayout>

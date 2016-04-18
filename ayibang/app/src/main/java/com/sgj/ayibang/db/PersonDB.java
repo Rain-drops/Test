@@ -32,7 +32,7 @@ public class PersonDB {
 
     public void onCreate(SQLiteDatabase db){
         String sql = "CREATE TABLE IF NOT EXISTS person " +
-                "(_ID INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR, age INTEGER, phone VARCHAR);";
+                "(_ID INTEGER PRIMARY KEY AUTOINCREMENT, name VARCHAR, age INTEGER, phone VARCHAR UNIQUE);";
         db.execSQL(sql);
     }
 

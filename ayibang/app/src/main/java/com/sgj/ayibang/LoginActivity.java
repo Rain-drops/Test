@@ -1,20 +1,31 @@
 package com.sgj.ayibang;
 
 import android.content.Context;
+import android.content.CursorLoader;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.Loader;
+import android.content.SharedPreferences;
+import android.database.Cursor;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.provider.ContactsContract;
 import android.support.v4.content.ContextCompat;
 import android.text.Editable;
 import android.text.Html;
+import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.sgj.ayibang.db.PersonDB;
 import com.sgj.ayibang.model.Contact;
+import com.sgj.ayibang.model.Person;
 import com.sgj.ayibang.receiver.SMSBroadcastReceiver;
 import com.sgj.ayibang.utils.Constant;
 
@@ -29,6 +40,7 @@ import cn.bmob.sms.exception.BmobException;
 import cn.bmob.sms.listener.QuerySMSStateListener;
 import cn.bmob.sms.listener.RequestSMSCodeListener;
 import cn.bmob.sms.listener.VerifySMSCodeListener;
+import cn.bmob.v3.listener.SaveListener;
 
 /**
  * Created by John on 2016/4/11.
@@ -37,6 +49,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener{
 
     private static Context mContext;
     private static final String TAG = "LoginActivity";
+    public static final String USER = "User";
 
     private SMSBroadcastReceiver mSMSBroadcastReceiver;
     private static final String ACTION = "android.provider.Telephony.SMS_RECEIVED";
@@ -52,6 +65,10 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener{
     EditText etPhoneNumber;
     @Bind(R.id.et_pass_word)
     EditText etPassWord;
+    @Bind(R.id.tv_title)
+    TextView tvTitle;
+    @Bind(R.id.iv_close)
+    ImageView ivClose;
 
     String mPhoneNumber;
     String mPassWord;
@@ -96,6 +113,8 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener{
         btnLogin.setOnClickListener(this);
         btnAuthCode.setClickable(false);
         btnLogin.setClickable(false);
+
+        ivClose.setOnClickListener(this);
 
         etPhoneNumber.addTextChangedListener(new TextWatcher() {
             @Override
@@ -220,10 +239,13 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener{
                 toast(" 登陆 ");
                 Map<String, String> map = verifySMS(mContext, mPhoneNumber, mPassWord);
                 if(map.get("code") == null){ // 验证成功
-
+                    saveData();
                     LoginActivity.this.finish();
                 }
 
+                break;
+            case R.id.iv_close:
+                LoginActivity.this.finish();
                 break;
             default:
                 break;
@@ -319,6 +341,70 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener{
                 time = RETRY_INTERVAL;
             }
         }).start();
+    }
+
+    private void saveData(){
+        final Person person = new Person(mPhoneNumber, mPhoneNumber, 0);
+
+        SharedPreferences preferences = mContext.getSharedPreferences(USER, MODE_PRIVATE);
+        String phone = preferences.getString("phone", "");
+        if(TextUtils.isEmpty(phone)){
+
+            SharedPreferences.Editor editor = preferences.edit();
+            editor.putString("name", mPhoneNumber);
+            editor.putString("phone", mPhoneNumber);
+            editor.commit();
+
+
+            new savePerson().execute(person);
+
+            person.save(mContext, new SaveListener() {
+                @Override
+                public void onSuccess() {
+                    toast("添加数据成功，返回objectId为：" + person.getObjectId() + ",数据在服务端的创建时间为：" + person.getCreatedAt());
+                }
+
+                @Override
+                public void onFailure(int code, String msg) {
+                    Log.d(TAG, "添加数据失败，code：" + code + ", msg : " + msg);
+                }
+            });
+        }
+        if(phone.equals(mPhoneNumber)){
+
+        }else {
+
+        }
+
+
+
+
+    }
+
+    private class savePerson extends AsyncTask<Person, Void, Void>{
+
+
+        @Override
+        protected Void doInBackground(Person... params) {
+            PersonDB personDB = PersonDB.getInstance(mContext);
+            personDB.savePerson(params[0]);
+            return null;
+        }
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+        }
+
+        @Override
+        protected void onProgressUpdate(Void... values) {
+            super.onProgressUpdate(values);
+        }
     }
 
     private void toast(String msg){

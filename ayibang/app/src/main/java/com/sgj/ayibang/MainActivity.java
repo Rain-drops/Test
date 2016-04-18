@@ -26,6 +26,7 @@ import com.amap.api.location.AMapLocation;
 import com.amap.api.location.AMapLocationClient;
 import com.amap.api.location.AMapLocationClientOption;
 import com.amap.api.location.AMapLocationListener;
+import com.google.gson.Gson;
 import com.sgj.ayibang.adapter.CityAdapter;
 import com.sgj.ayibang.db.PersonDB;
 import com.sgj.ayibang.fragment.FragmentMain;
@@ -95,6 +96,13 @@ public class MainActivity extends BaseActivity implements View.OnClickListener{
         init();
         mMainFragment = FragmentMain.newInstance();
         switchFragment(TAG_MAIN, mMainFragment);
+        // 系统内存
+        long totalMemory = Runtime.getRuntime().totalMemory();
+        // 空闲内存
+        long freeMemory = Runtime.getRuntime().freeMemory();
+
+
+
 
     }
 

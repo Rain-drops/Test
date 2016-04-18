@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.google.gson.Gson;
 import com.sgj.ayibang.R;
 import com.sgj.ayibang.model.Order;
 
@@ -20,7 +21,7 @@ import butterknife.ButterKnife;
 /**
  * Created by John on 2016/3/24.
  */
-public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder>{
+    public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder>{
 
     private Context mContext;
     ArrayList<Order> mList;
@@ -47,6 +48,11 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder>{
         if(order == null){
             return;
         }
+        long totalMemory = Runtime.getRuntime().totalMemory();
+        long freeMemory = Runtime.getRuntime().freeMemory();
+
+
+
         holder.tv_phone.setText(order.getPhone());
         holder.tv_ordertype.setText(order.getOrderType());
         Glide.with(mContext).load(order.getPhoto().getFileUrl(mContext)).centerCrop().into(holder.iv_photo);

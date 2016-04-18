@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/qianhui2">
 
-    <include layout="@layout/actionbar_layout"/>
+    <include layout="@layout/actionbar_layout2"/>
 
     <TextView
         android:gravity="center"

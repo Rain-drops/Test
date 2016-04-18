@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="white_normal">#FF4081</color>
+    <color name="white_pressed">#303F9F</color>
+
+    <color name="qianhui2">#e8e8e8</color>
+    <color name="qianhui">#f0f0f0</color>
+    <color name="qianlan">#e2f8f9</color>
+    <color name="white">#fdfdfd</color>
+    <color name="qianlv">#54cdcd</color>
+    <color name="zhonglv">#00fac8</color>
+    <color name="shenlv">#008461</color>
+    <color name="green">#00ff00</color>
+    <color name="shenlv2">#328181</color>
+    <color name="qingse">#00FFcc</color>
+    <color name="color_zhonghui">#ff798089</color>
+    <color name="black">#000</color>
+    <color name="black_2">#222</color>
+    <color name="color_shenhui">#ff999999</color>
+
+</resources>
