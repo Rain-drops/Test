@@ -65,6 +65,7 @@
         <activity android:name=".DetailsActivity"/>
         <activity android:name=".ImageViewActivity"/>
         <activity android:name=".LoginActivity"/>
+        <activity android:name=".fragment.TouTiaoActivity"/>
 
     </application>
 

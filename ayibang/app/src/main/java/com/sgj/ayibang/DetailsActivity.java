@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.webkit.JavascriptInterface;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -20,6 +21,7 @@ import butterknife.ButterKnife;
 /**
  * Created by John on 2016/4/6.
  */
+
 public class DetailsActivity extends Activity {
 
     private static final String TAG = "DetailsActivity";
@@ -33,7 +35,10 @@ public class DetailsActivity extends Activity {
     String mUrl = "file:///android_asset/MyHtml.html";
 
 
+
+
     @SuppressLint("JavascriptInterface")
+    @JavascriptInterface
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

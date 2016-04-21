@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -50,6 +52,11 @@ public class FragmentMain extends Fragment implements View.OnClickListener{
     LinearLayout service5;
     @Bind(R.id.ll_layout6)
     LinearLayout service6;
+    @Bind(R.id.ll_layout7)
+    LinearLayout service7;
+
+    @Bind(R.id.ll_toutiao)
+    LinearLayout mTouTiao;
 
     private static final int[] pics = {R.drawable.a, R.drawable.b, R.drawable.c};
     List<ImageView> mDataSet;
@@ -78,6 +85,8 @@ public class FragmentMain extends Fragment implements View.OnClickListener{
         service4.setOnClickListener(this);
         service5.setOnClickListener(this);
         service6.setOnClickListener(this);
+
+        mTouTiao.setOnClickListener(this);
         return view;
     }
 
@@ -141,6 +150,12 @@ public class FragmentMain extends Fragment implements View.OnClickListener{
                 intent.setClass(getActivity(), ImageViewActivity.class);
                 startActivity(intent);
                 break;
+
+            case R.id.ll_toutiao:
+                intent.setClass(getActivity(), TouTiaoActivity.class);
+                startActivity(intent);
+                break;
+
             default:
                 break;
 
