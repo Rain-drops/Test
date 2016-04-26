@@ -16,6 +16,8 @@ import com.amap.api.location.AMapLocationClientOption;
 import com.amap.api.location.AMapLocationListener;
 import com.sgj.ayibang.utils.LocationUtils;
 
+import java.lang.ref.WeakReference;
+
 /**
  * Created by John on 2016/3/22.
  */
@@ -27,6 +29,8 @@ public class FirstActivity extends AppCompatActivity implements AMapLocationList
 
     private AMapLocationClient locationClient = null;
     private AMapLocationClientOption locationOption = null;
+
+    private final MyHandler myHandler = new MyHandler(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -116,5 +120,29 @@ public class FirstActivity extends AppCompatActivity implements AMapLocationList
                     break;
             }
         };
+    };
+
+    private static class MyHandler extends Handler{
+
+        private final WeakReference<FirstActivity> mWeakReference;
+
+        public MyHandler(FirstActivity activity) {
+            mWeakReference = new WeakReference<FirstActivity>(activity);
+        }
+
+        @Override
+        public void handleMessage(Message msg) {
+            FirstActivity activity = mWeakReference.get();
+            if(activity != null){
+
+            }
+        }
+    }
+
+    private static final Runnable mRunnable = new Runnable() {
+        @Override
+        public void run() {
+
+        }
     };
 }
