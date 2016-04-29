@@ -90,8 +90,10 @@ public class ImageViewTest extends ImageView {
         init();
     }
 
+    private float degrees = 0;
     @Override
     protected void onDraw(Canvas canvas) {
+
 
         if(mBitmap == null){
             return;

@@ -8,6 +8,7 @@ import android.util.DisplayMetrics;
 
 import com.bmob.BmobConfiguration;
 import com.bmob.BmobPro;
+import com.facebook.drawee.backends.pipeline.Fresco;
 import com.sgj.ayibang.utils.Constant;
 
 import java.util.Locale;
@@ -38,5 +39,7 @@ public class MyApp extends Application {
         BmobPro.getInstance(context).initConfig(config);
         // 短信
         BmobSMS.initialize(context, Constant.APPID);
+        // 图片( Fresco )
+        Fresco.initialize(this);
     }
 }

@@ -10,6 +10,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import com.facebook.drawee.backends.pipeline.Fresco;
+import com.facebook.drawee.view.SimpleDraweeView;
 import com.sgj.ayibang.db.PersonDB;
 import com.sgj.ayibang.model.Person;
 
@@ -30,10 +32,13 @@ public class ImageViewActivity extends BaseActivity implements View.OnClickListe
     FloatingActionButton mFabSub;
     private Object data;
     Context mContext;
+    @Bind(R.id.sdv_fresco)
+    SimpleDraweeView sdv_fresco;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_imageview);
         mContext = this;
         ButterKnife.bind(this);

@@ -52,7 +52,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".GuideActivity"></activity>
+        <activity android:name=".GuideActivity" ></activity>
         <activity android:name=".MainActivity"></activity>
         <activity android:name=".CardActivity"></activity>
         <activity android:name=".ServiceActivity"></activity>
