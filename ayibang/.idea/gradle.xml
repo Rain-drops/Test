@@ -12,6 +12,7 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/db" />
             <option value="$PROJECT_DIR$/http" />
+            <option value="$PROJECT_DIR$/mytest" />
             <option value="$PROJECT_DIR$/quicksidebar" />
           </set>
         </option>

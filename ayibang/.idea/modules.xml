@@ -6,6 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/ayibang.iml" filepath="$PROJECT_DIR$/ayibang.iml" />
       <module fileurl="file://$PROJECT_DIR$/db/db.iml" filepath="$PROJECT_DIR$/db/db.iml" />
       <module fileurl="file://$PROJECT_DIR$/http/http.iml" filepath="$PROJECT_DIR$/http/http.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mytest/mytest.iml" filepath="$PROJECT_DIR$/mytest/mytest.iml" />
       <module fileurl="file://$PROJECT_DIR$/quicksidebar/quicksidebar.iml" filepath="$PROJECT_DIR$/quicksidebar/quicksidebar.iml" />
     </modules>
   </component>

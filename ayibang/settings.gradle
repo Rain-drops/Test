@@ -1,1 +1,1 @@
-include ':app', ':http', ':db', ':quicksidebar'
+include ':app', ':http', ':db', ':quicksidebar', ':mytest'
