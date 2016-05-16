@@ -67,6 +67,7 @@
         <activity android:name=".ImageViewActivity"/>
         <activity android:name=".LoginActivity"/>
         <activity android:name=".fragment.TouTiaoActivity"/>
+        <activity android:name=".SlidingUpPanelActivity"/>
 
     </application>
 

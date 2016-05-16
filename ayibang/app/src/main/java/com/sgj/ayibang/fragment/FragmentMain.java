@@ -20,6 +20,7 @@ import com.sgj.ayibang.NotificationActivity;
 import com.sgj.ayibang.R;
 import com.sgj.ayibang.ScrollGridActivity;
 import com.sgj.ayibang.ServiceActivity;
+import com.sgj.ayibang.SlidingUpPanelActivity;
 import com.sgj.ayibang.adapter.GuideAdapter;
 import com.sgj.ayibang.utils.PlayViewHandler;
 
@@ -85,7 +86,7 @@ public class FragmentMain extends Fragment implements View.OnClickListener{
         service4.setOnClickListener(this);
         service5.setOnClickListener(this);
         service6.setOnClickListener(this);
-
+        service7.setOnClickListener(this);
         mTouTiao.setOnClickListener(this);
         return view;
     }
@@ -153,6 +154,10 @@ public class FragmentMain extends Fragment implements View.OnClickListener{
 
             case R.id.ll_toutiao:
                 intent.setClass(getActivity(), TouTiaoActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.ll_layout7:
+                intent.setClass(getActivity(), SlidingUpPanelActivity.class);
                 startActivity(intent);
                 break;
 

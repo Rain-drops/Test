@@ -43,8 +43,8 @@ public class FirstActivity extends AppCompatActivity implements AMapLocationList
         if(preferences.getBoolean(FIRST, true)){
             mHandler.sendEmptyMessageDelayed(SWITCH_GUIDACTIVITY, 1000);
         }else {
-
-            mHandler.sendEmptyMessageDelayed(SWITCH_MAINACTIVITY,1000);
+            mHandler.sendEmptyMessageDelayed(SWITCH_GUIDACTIVITY, 1000);
+//            mHandler.sendEmptyMessageDelayed(SWITCH_MAINACTIVITY,1000);
         }
 
     }
